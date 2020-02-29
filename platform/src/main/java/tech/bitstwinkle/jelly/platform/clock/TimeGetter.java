@@ -5,8 +5,18 @@
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
-version '1.0-SNAPSHOT'
+package tech.bitstwinkle.jelly.platform.clock;
 
-dependencies {
-    implementation project(':platform')
+/**
+ * @author suuyoo.wg on 2020/2/29
+ */
+public interface TimeGetter {
+
+  TimeGetter CURRENT = () -> System.currentTimeMillis();
+
+  /**
+   * 当前时间
+   */
+  long getTime();
+
 }
