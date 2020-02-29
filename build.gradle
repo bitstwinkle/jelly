@@ -1,0 +1,39 @@
+/*
+ * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
+ */
+
+group 'tech.bitstwinkle.jelly'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenLocal()
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+    }
+
+    dependencies {
+        testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
+        testImplementation('org.mockito:mockito-junit-jupiter:2.19.1')
+        testImplementation('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+        testImplementation('org.junit.vintage:junit-vintage-engine:5.2.0')
+        testImplementation('org.junit.platform:junit-platform-launcher:1.2.0')
+    }
+
+}
+
