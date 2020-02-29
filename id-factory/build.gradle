@@ -8,9 +8,6 @@
 version '1.1-SNAPSHOT'
 
 dependencies {
-    compile('com.google.guava:guava:28.1-jre')
-    compile('com.alibaba:fastjson:1.2.61')
-    compile('org.apache.commons:commons-lang3:3.9')
-    compile('org.apache.commons:commons-collections4:4.4')
-    compile('com.github.rholder:guava-retrying:2.0.0')
+    implementation project(':commons')
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_BOOT_VERSION}"
 }

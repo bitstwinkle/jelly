@@ -1,9 +1,16 @@
 /*
+ * ** github: https://github.com/bitstwinkle ***
+ * ** gitee: https://gitee.com/bitstwinkle ***
+ * ** 比特闪耀-技术让世界更美丽 ***
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
 group 'tech.bitstwinkle.jelly'
-version '1.0-SNAPSHOT'
+version '1.0'
+
+ext {
+    SPRING_BOOT_VERSION = '2.1.9.RELEASE'
+}
 
 buildscript {
     repositories {
@@ -17,7 +24,89 @@ buildscript {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+
+    group rootProject.group
+
     sourceCompatibility = 1.8
+
+    compileJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+        [compileJava]*.options*.encoding = 'UTF-8'
+    }
+
+    compileTestJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+        [compileTestJava]*.options*.encoding = 'UTF-8'
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allJava
+        classifier = 'sources'
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                afterEvaluate {
+                    println("[publish] artifact: ${project.group}:${project.name}:${project.version}")
+
+                    groupId project.group
+                    artifactId project.name
+                    version project.version
+                    from components.java
+                    artifact sourcesJar
+
+                    pom {
+                        name = "bitstwinkle-jelly"
+                        description = "bitstwinkle-jelly"
+                        url = "https://github.com/bitstwinkle/jelly"
+                        licenses {
+                            license {
+                                name = "The Apache License, Version 2.0"
+                                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                            }
+                        }
+                        developers {
+                            developer {
+                                id = 'bitstwinkle'
+                                name = 'bitstwinkle'
+                                email = 'bitstwinkle@yeah.net'
+                            }
+                        }
+                        scm {
+                            connection = "scm:git:https://github.com/bitstwinkle/jelly.git"
+                            developerConnection = "scm:git:https://github.com/bitstwinkle/jelly.git"
+                            url = "https://github.com/bitstwinkle/jelly"
+                        }
+                    }
+                }
+
+            }
+        }
+
+        repositories {
+            maven {
+                afterEvaluate {
+                    def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+                    def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+                    url = project.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                    println("[publish] to: ${url}")
+                    credentials {
+                        username = "${NEXUS_USERNAME}"
+                        password = "${NEXUS_PASSWORD}"
+                    }
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.mavenJava
+    }
 
     repositories {
         mavenLocal()
