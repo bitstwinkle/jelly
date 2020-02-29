@@ -5,9 +5,13 @@
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
-version '1.0-SNAPSHOT'
+package tech.bitstwinkle.jelly.idfactory.dal;
 
-dependencies {
-    compile project(':commons')
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_BOOT_VERSION}"
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * @author suuyoo.wg on 2020/3/1
+ */
+public interface SequenceEntityRepository extends JpaRepository<SequenceEntity, String> {
+
 }
