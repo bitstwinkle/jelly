@@ -36,7 +36,7 @@ public class JellyIdFactory {
    * @param sequence
    * @return
    */
-  public JellyIdGenerator createWattIdGenerator(String timestampTemplate, Sequence sequence) {
+  public JellyIdGenerator createIdGenerator(String timestampTemplate, Sequence sequence) {
 
     LOGGER.info("create JellyIdGenerator: {}|{}", timestampTemplate, sequence);
 

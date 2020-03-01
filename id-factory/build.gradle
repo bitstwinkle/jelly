@@ -5,7 +5,7 @@
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
-version '1.0-SNAPSHOT'
+version '1.0.1-SNAPSHOT'
 
 dependencies {
     compile project(':platform')

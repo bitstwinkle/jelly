@@ -5,9 +5,17 @@
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
-version '1.0.7-SNAPSHOT'
+package tech.bitstwinkle.jelly.commons.ids;
 
-dependencies {
-    compile project(':commons')
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_BOOT_VERSION}"
+import java.util.UUID;
+
+/**
+ * @author suuyoo.wg on 2020/3/1
+ */
+public final class JellyIds {
+
+  public static String uniqueId() {
+    return UUID.randomUUID().toString().replaceAll("-", "");
+  }
+
 }

@@ -20,6 +20,8 @@ public class Response<T> implements Serializable {
 
   private static final long serialVersionUID = -4989969116461765906L;
 
+  private Meta meta;
+
   private boolean success;
   private JellyError error;
   private T data;
@@ -86,4 +88,11 @@ public class Response<T> implements Serializable {
     this.data = data;
   }
 
+  public Meta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(Meta meta) {
+    this.meta = meta;
+  }
 }
