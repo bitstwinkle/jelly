@@ -33,7 +33,7 @@ public class MessageCodec {
    * @param payload 携带的信息
    * @param clazz   原型类
    * @param <T>     解码后的对象
-   * @return
+   * @return 解码后的对象
    */
   public static <T> T decode(byte[] payload, Class clazz) {
     T obj = JSONObject.parseObject(payload, clazz);

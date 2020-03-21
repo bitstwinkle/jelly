@@ -64,15 +64,15 @@ public abstract class BaseMessageListener<T> implements MessageListener {
     /**
      * 获取该监听器的payload主体类型
      *
-     * @return
+     * @return 携带信息的类原型
      */
     public abstract Class<T> getPayloadClass();
 
     /**
      * 执行消息消费
      *
-     * @param payload
-     * @return
+     * @param payload 携带信息
+     * @return 消费结果
      */
     public abstract MessageConsumeResultEnum onConsume(T payload);
 }
