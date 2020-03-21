@@ -21,7 +21,8 @@ public class HashHelper {
   /**
    * MD5加密
    *
-   * @return
+   * @param str 要转码的字符串
+   * @return MD5后字符串
    */
   public static String md5(String str) {
     if (str == null) {
@@ -32,8 +33,8 @@ public class HashHelper {
 
   /**
    * sha1加密
-   *
-   * @return
+   * @param str 要转码的字符串
+   * @return SHA1字符串
    */
   public static String sha1(String str) {
     if (str == null) {
@@ -44,8 +45,8 @@ public class HashHelper {
 
   /**
    * sha512加密
-   *
-   * @return
+   * @param str 要转码的字符串
+   * @return SHA512字符串
    */
   public static String sha512(String str) {
     if (str == null) {

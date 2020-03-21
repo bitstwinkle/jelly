@@ -21,15 +21,15 @@ public interface JellyIdGenerator {
   /**
    * 生成ID
    *
-   * @return
+   * @return ID
    */
   String generateId();
 
   /**
    * 指定分库分别位生成ID
    *
-   * @param dbFlag
-   * @return
+   * @param dbFlag db标识
+   * @return ID
    */
   String generateId(int dbFlag);
 

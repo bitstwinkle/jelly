@@ -5,20 +5,26 @@
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
-package tech.bitstwinkle.jelly.platform.clock;
+package tech.bitstwinkle.jelly.platform.mq;
 
 /**
- * @author suuyoo.wg on 2020/2/29
+ * @author suuyoo.wg on 2019/10/8
  */
-public interface TimeGetter {
-
-  TimeGetter CURRENT = () -> System.currentTimeMillis();
+public enum MessageConsumeResultEnum {
 
   /**
-   * 当前时间
-   *
-   * @return long the time stamp
+   * 消费成功
    */
-  long getTime();
+  SUCCESS,
+
+  /**
+   * 消费失败，需要重新发送
+   */
+  FAILED,
+
+  /**
+   * 忽略该消息
+   */
+  IGNORE
 
 }

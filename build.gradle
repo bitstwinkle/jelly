@@ -44,12 +44,27 @@ subprojects {
     }
 
     task sourcesJar(type: Jar) {
-        from sourceSets.main.allJava
+        from sourceSets.main.allSource
         classifier = 'sources'
+    }
+
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    task sourceJar(type: Jar, dependsOn: classes) {
+        description = "打包源码"
+        classifier = 'sources'
+        from sourceSets.main.allSource
     }
 
     publishing {
         publications {
+            gpr(MavenPublication) {
+                from(components.java)
+            }
+
             mavenJava(MavenPublication) {
                 afterEvaluate {
                     println("[publish] artifact: ${project.group}:${project.name}:${project.version}")
@@ -59,6 +74,7 @@ subprojects {
                     version project.version
                     from components.java
                     artifact sourcesJar
+                    artifact javadocJar
 
                     pom {
                         name = "bitstwinkle-jelly"
@@ -66,8 +82,8 @@ subprojects {
                         url = "https://github.com/bitstwinkle/jelly"
                         licenses {
                             license {
-                                name = "The Apache License, Version 2.0"
-                                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                                name = "GNU General Public License v3.0"
+                                url = "https://www.gnu.org/licenses/gpl-3.0.html"
                             }
                         }
                         developers {
@@ -101,6 +117,15 @@ subprojects {
                     }
                 }
             }
+
+//            maven {
+//                name = "GITHUB"
+//                url = uri("https://maven.pkg.github.com/bitstwinkle/jelly")
+//                credentials {
+//                    username = "${GITHUB_USER}"
+//                    password = "${GITHUB_TOKEN}"
+//                }
+//            }
         }
     }
 

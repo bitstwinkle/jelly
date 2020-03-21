@@ -31,8 +31,8 @@ public final class MoneyHelper {
   /**
    * 判断是否有效的币种类型
    *
-   * @param currencyCode
-   * @return
+   * @param currencyCode 币种码
+   * @return 是否正确币种类型
    */
   public static boolean isValidCurrency(String currencyCode) {
     try {
@@ -47,9 +47,9 @@ public final class MoneyHelper {
   /**
    * 判断valA是否大于valB，如果valA大于valB，那么返回true，否则返回false
    *
-   * @param valA
-   * @param valB
-   * @return
+   * @param valA A值
+   * @param valB B值
+   * @return A值是否大于B值
    */
   public static boolean greaterThan(BigDecimal valA, BigDecimal valB) {
     return (valA.compareTo(valB) > 0);
@@ -58,9 +58,9 @@ public final class MoneyHelper {
   /**
    * 判断valA和valB的值是否相等，如果valA和valB的值是否相等，那么返回true，否则返回false
    *
-   * @param valA
-   * @param valB
-   * @return
+   * @param valA A值
+   * @param valB B值
+   * @return A值是否等于B值
    */
   public static boolean equals(BigDecimal valA, BigDecimal valB) {
     return (valA.compareTo(valB) == 0);
@@ -69,8 +69,8 @@ public final class MoneyHelper {
   /**
    * 用于货币计算的加法，返回结果默认精确到小数点后4位，舍入模式：四舍五入
    *
-   * @param valA
-   * @param valB
+   * @param valA A值
+   * @param valB B值
    * @return （valA + valB）的结果
    */
   public static BigDecimal add(BigDecimal valA, BigDecimal valB) {
@@ -80,8 +80,8 @@ public final class MoneyHelper {
   /**
    * 用于货币计算的加法，返回结果的舍入模式：四舍五入
    *
-   * @param valA
-   * @param valB
+   * @param valA  A值
+   * @param valB  B值
    * @param scale 返回结果的精确度，设置返回结果精确到小数点后几位
    * @return （valA + valB）的结果
    */
@@ -92,8 +92,8 @@ public final class MoneyHelper {
   /**
    * 用于货币计算的减法，返回结果默认精确到小数点后4位
    *
-   * @param valA
-   * @param valB
+   * @param valA A值
+   * @param valB B值
    * @return （valA - valB）的结果
    */
   public static BigDecimal minus(BigDecimal valA, BigDecimal valB) {
@@ -103,8 +103,8 @@ public final class MoneyHelper {
   /**
    * 用于货币计算的减法，返回结果的舍入模式：四舍五入
    *
-   * @param valA
-   * @param valB
+   * @param valA A值
+   * @param valB B值
    * @param scale 返回结果的精确度，设置返回结果精确到小数点后几位
    * @return （valA - valB）的结果
    */
@@ -115,8 +115,8 @@ public final class MoneyHelper {
   /**
    * 用于货币计算的乘法，返回结果默认精确到小数点后4位
    *
-   * @param valA
-   * @param valB
+   * @param valA A值
+   * @param valB B值
    * @return （valA * valB）的结果
    */
   public static BigDecimal multiply(BigDecimal valA, BigDecimal valB) {
@@ -126,8 +126,8 @@ public final class MoneyHelper {
   /**
    * 用于货币计算的乘法，返回结果的舍入模式：四舍五入
    *
-   * @param valA
-   * @param valB
+   * @param valA A值
+   * @param valB B值
    * @param scale 返回结果的精确度，设置返回结果精确到小数点后几位
    * @return （valA * valB）的结果
    */
@@ -167,8 +167,8 @@ public final class MoneyHelper {
   /**
    * 将指定的值转换为BigDecimal对象，如果val为null或者为空，那么默认返回0
    *
-   * @param val
-   * @return
+   * @param val 值字符串
+   * @return 值
    */
   public static BigDecimal toBigDecimal(String val) {
     if (val == null || "".equals(val.trim())) {
@@ -181,8 +181,8 @@ public final class MoneyHelper {
   /**
    * 元转分
    *
-   * @param bigDecimal
-   * @return
+   * @param bigDecimal 源值
+   * @return 分值
    */
   public static long toCent(BigDecimal bigDecimal) {
     if (bigDecimal == null) {

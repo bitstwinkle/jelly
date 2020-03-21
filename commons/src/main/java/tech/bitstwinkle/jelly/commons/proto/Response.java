@@ -42,7 +42,7 @@ public class Response<T> implements Serializable {
   /**
    * 判定响应正确
    *
-   * @param response
+   * @param response 响应对象
    */
   public static void assertSuccess(Response response) {
     if (response == null) {

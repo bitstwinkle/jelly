@@ -32,9 +32,9 @@ public class JellyIdFactory {
   /**
    * 创建ID生成器
    *
-   * @param timestampTemplate
-   * @param sequence
-   * @return
+   * @param timestampTemplate 时间戳模板
+   * @param sequence          序列
+   * @return ID生成器
    */
   public JellyIdGenerator createIdGenerator(String timestampTemplate, Sequence sequence) {
 

@@ -23,6 +23,9 @@ public final class RequestAssert {
 
   /**
    * 断言非空
+   *
+   * @param para 参数
+   * @param name 参数名称
    */
   public static void notNull(Object para, String name) throws JellyException {
     if (para == null) {
@@ -32,6 +35,8 @@ public final class RequestAssert {
 
   /**
    * 断言非空字符串
+   * @param para 参数
+   * @param name 参数名称
    */
   public static void notBlank(String para, String name) throws JellyException {
     if (StringUtils.isBlank(para)) {
@@ -42,9 +47,9 @@ public final class RequestAssert {
   /**
    * 断言集合不空
    *
-   * @param col
-   * @param name
-   * @throws JellyException
+   * @param col 参数
+   * @param name 参数名称
+   * @throws JellyException 异常
    */
   public static void notEmpty(Collection<?> col, String name) throws JellyException {
     if (CollectionUtils.isEmpty(col)) {
@@ -55,9 +60,9 @@ public final class RequestAssert {
   /**
    * 断言集合不空
    *
-   * @param map
-   * @param name
-   * @throws JellyException
+   * @param map 参数
+   * @param name 参数名称
+   * @throws JellyException 异常
    */
   public static void notEmpty(Map<?, ?> map, String name) throws JellyException {
     if (MapUtils.isEmpty(map)) {
@@ -68,9 +73,9 @@ public final class RequestAssert {
   /**
    * 判断数组不为空
    *
-   * @param col
-   * @param name
-   * @throws JellyException
+   * @param col 参数
+   * @param name 参数名称
+   * @throws JellyException 异常
    */
   public static void notEmpty(Object[] col, String name) throws JellyException {
     if (col == null || col.length == 0) {
@@ -80,6 +85,9 @@ public final class RequestAssert {
 
   /**
    * 断言为真
+   * @param cond 参数
+   * @param name 参数名称
+   * @throws JellyException 异常
    */
   public static void isTrue(boolean cond, String name) throws JellyException {
     if (!cond) {
@@ -90,9 +98,9 @@ public final class RequestAssert {
   /**
    * 断言为手机
    *
-   * @param input
-   * @param errorMsg
-   * @throws JellyException
+   * @param input 参数
+   * @param errorMsg 错误消息
+   * @throws JellyException 异常
    */
   public static void isMobile(String input, String errorMsg) throws JellyException {
     if (input.length() != 11) {

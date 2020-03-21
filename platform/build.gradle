@@ -5,9 +5,11 @@
  * Copyright © 2020-2030 Hangzhou BitsTwinkle Information Technology Co.,Ltd. All rights reserved.
  */
 
-version '1.0.7-SNAPSHOT'
+version '1.1.1'
 
 dependencies {
     compile project(':commons')
     compile "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_BOOT_VERSION}"
+
+    compile 'com.aliyun.openservices:ons-client:1.8.4.Final'
 }

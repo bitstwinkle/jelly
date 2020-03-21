@@ -60,7 +60,7 @@ public class LocalSequence {
   /**
    * 获取下一个序列号
    *
-   * @return
+   * @return 下一个序列号
    */
   public long nextSequence() {
     if (checkWhetherNeedRefresh()) {
@@ -84,8 +84,8 @@ public class LocalSequence {
   /**
    * 左侧补零
    *
-   * @param seq
-   * @return
+   * @param seq 序列
+   * @return 补零后的字符串
    */
   public String formatSequence(long seq) {
     return String.format("%04d", seq);

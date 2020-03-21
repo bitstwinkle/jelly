@@ -15,8 +15,8 @@ public interface JellyErrorGetter {
   /**
    * 根据参数构建错误信息
    *
-   * @param args
-   * @return
+   * @param args 错误参数
+   * @return 错误
    */
   JellyError getError(Object... args);
 

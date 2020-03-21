@@ -27,8 +27,8 @@ public final class JellyIdHelper {
   /**
    * 判定是否是有效ID
    *
-   * @param id
-   * @return
+   * @param id 编号
+   * @return 是否有效ID
    */
   public static boolean isValidId(String id) {
     if (id == null || id.isEmpty()) {
@@ -49,8 +49,8 @@ public final class JellyIdHelper {
   /**
    * 获取某个ID的分库分表位:倒数2-3位为分库分表位
    *
-   * @param id
-   * @return
+   * @param id 编号
+   * @return 对应分库分表位
    */
   public static int getDbFlag(String id) {
     int len = id.length();
